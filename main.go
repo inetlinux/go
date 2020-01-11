@@ -4,22 +4,22 @@ import (
 	"fmt"
 	"time"
 
-	_ "github.com/urfave/cli"
-
+	_ "crypto/rsa"
+	_ "crypto/sha256"
+	_ "crypto/x509"
 	"go.etcd.io/etcd/clientv3"
 
-	_ "crypto/x509"
-
 	_ "github.com/dgrijalva/jwt-go"
-	_ "github.com/patrickmn/go-cache"
-
-	_ "github.com/jinzhu/gorm"
-	_ "github.com/jinzhu/gorm/dialects/mysql"
-	_ "github.com/jinzhu/gorm/dialects/postgres"
-
+	_ "github.com/gin-gonic/gin"
 	_ "github.com/gorilla/context"
 	_ "github.com/gorilla/mux"
 	_ "github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
+	_ "github.com/jinzhu/gorm/dialects/postgres"
+	_ "github.com/patrickmn/go-cache"
+	_ "github.com/urfave/cli"
+
+	_ "google.golang.org/grpc"
 )
 
 func etcd_init() {
