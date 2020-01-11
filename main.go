@@ -2,15 +2,16 @@ package main
 
 import (
 	"fmt"
-	"time"
 
 	_ "crypto/rsa"
 	_ "crypto/sha256"
 	_ "crypto/x509"
-	"go.etcd.io/etcd/clientv3"
+
+	_ "go.etcd.io/etcd/clientv3"
 
 	_ "github.com/dgrijalva/jwt-go"
 	_ "github.com/gin-gonic/gin"
+	_ "github.com/golang/protobuf"
 	_ "github.com/gorilla/context"
 	_ "github.com/gorilla/mux"
 	_ "github.com/jinzhu/gorm"
@@ -19,21 +20,12 @@ import (
 	_ "github.com/patrickmn/go-cache"
 	_ "github.com/urfave/cli"
 
+	_ "golang.org/x/net"
+	_ "golang.org/x/sys"
+	_ "google.golang.org/genproto"
 	_ "google.golang.org/grpc"
 )
 
-func etcd_init() {
-	cli, err := clientv3.New(clientv3.Config{
-		Endpoints:   []string{"localhost:2379"},
-		DialTimeout: 5 * time.Second,
-	})
-	if err != nil {
-		fmt.Println("error in connect to etcd")
-		return
-	}
-	defer cli.Close()
-}
-
 func main() {
-	fmt.Println("hello")
+	fmt.Println("done")
 }
