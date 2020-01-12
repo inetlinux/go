@@ -15,4 +15,5 @@ WORKDIR $GOPATH
 COPY main.go .
 
 RUN go get -d -v .;\
+ go get -u github.com/golang/protobuf/protoc-gen-go;\
  rm -f main.go /tmp/go.tgz;
