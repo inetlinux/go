@@ -6,13 +6,14 @@ ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 
 RUN set -e; \
   yum install -y git;\
-  curl -L https://dl.google.com/go/go${GOLANG_VERSION}.linux-amd64.tar.gz -o go.tgz; \
-  tar -C /usr/local -xzf go.tgz; \
-  /usr/local/go/bin/go version; \
-  rm -f go.tgz;
+  curl -L https://dl.google.com/go/go${GOLANG_VERSION}.linux-amd64.tar.gz -o /tmp/go.tgz; \
+  tar -C /usr/local -xzf /tmp/go.tgz; \
+  /usr/local/go/bin/go version;
 
 WORKDIR $GOPATH
+VOLUME $GOPATH
 
 COPY main.go .
+
 RUN go get -d -v . ;\
-  rm -f main.go
+  rm -f main.go /tmp/go.tgz
