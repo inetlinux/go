@@ -4,6 +4,7 @@ ENV GOLANG_VERSION 1.13.6
 
 RUN set -e;\
   yum install -y git;\
+  yum -y groupinstall "Development Tools";\
   curl -L https://dl.google.com/go/go${GOLANG_VERSION}.linux-amd64.tar.gz -o /tmp/go.tgz;\
   tar -C /usr/local -xzf /tmp/go.tgz;\
   /usr/local/go/bin/go version;
@@ -14,6 +15,8 @@ WORKDIR $GOPATH
 
 COPY main.go .
 
-RUN go get -d -v .;\
- go get -u github.com/golang/protobuf/protoc-gen-go;\
- rm -f main.go /tmp/go.tgz;
+# go get -u github.com/golang/protobuf/protoc-gen-go;\
+
+RUN go get -v .;\
+ rm -f main.go /tmp/go.tgz;\
+ yum clean all
