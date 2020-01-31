@@ -24,6 +24,7 @@ import (
 	_ "github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
+	_ "github.com/jinzhu/gorm/dialects/sqlite"
 	_ "github.com/patrickmn/go-cache"
 	_ "github.com/urfave/cli"
 	_ "github.com/wxnacy/wgo/arrays"
