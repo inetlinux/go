@@ -13,5 +13,5 @@ WORKDIR $GOPATH
 
 COPY main.go .
 
-# go get -u github.com/golang/protobuf/protoc-gen-go;\
-RUN go get -v .; yum clean all
+# cleanup
+RUN go get -v .; rm -f main.go; yum clean all
